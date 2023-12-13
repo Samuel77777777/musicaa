@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:sl_music/Homepage.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:sl_music/theme/theme.dart';
+import 'firebase_options.dart';
 
-import 'package:sl_music/theme/theme_provider.dart';
+import 'Screens/welcomeScreen.dart';
 
-void main() {
-  runApp(ChangeNotifierProvider(
-    create: (context) => ThemeProvider(),
-    child: const MyApp(),
-  ));
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  const MyApp();
 }
 
 class MyApp extends StatelessWidget {
@@ -17,11 +19,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: Provider.of<ThemeProvider>(context).themeData,
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Music App',
-      home: const HomePage(),
+      home: WelcomeScreen(),
     );
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:sl_music/theme/theme_provider.dart';
+// import 'package:provider/provider.dart';
+// import 'package:sl_music/theme/theme_provider.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -8,7 +8,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
+      // backgroundColor: Theme.of(context).colorScheme.background,
       body: Center(
         child: Container(
           width: double.infinity,
@@ -16,7 +16,7 @@ class HomePage extends StatelessWidget {
           padding: const EdgeInsets.all(20),
           child: ElevatedButton(
             onPressed: () {
-              Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
+              // Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
             },
             child: Text(
               "Change Theme",
